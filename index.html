@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PropConnect - Your Rental Companion</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">PropConnect</h1>
+            <ul class="nav-links">
+                <li><a href="#owner-section">List Property</a></li>
+                <li><a href="#ledger-section">View Properties</a></li>
+                <li><a href="#urbanclap-section">Cleaning Services</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        
+        <div class="hero-gallery">
+            <!-- Gallery images can go here -->
+        </div>
+        <button onclick="scrollToSection('ledger-section')">View Properties</button>
+    </section>
+
+    <!-- Owner Section -->
+    <section id="owner-section" class="section">
+        <h2>List Your Property</h2>
+        <p>Provide property details, upload images, and attract the right tenants.</p>
+        <form id="owner-form" class="form">
+            <label for="owner-name">Owner Name:</label>
+            <input type="text" id="owner-name" placeholder="Your Name" required>
+
+            <label for="property-address">Property Address:</label>
+            <input type="text" id="property-address" placeholder="Property Address" required>
+
+            <label for="lease-paper">Lease Paper:</label>
+            <input type="file" id="lease-paper" accept=".pdf" required>
+
+            <label for="property-images">Property Images:</label>
+            <input type="file" id="property-images" accept="image/*" multiple required>
+
+            <button type="submit">Upload Property</button>
+        </form>
+    </section>
+
+    <!-- Ledger Section -->
+    <section id="ledger-section" class="section">
+        <h2>Explore Properties</h2>
+        <div class="search-bar">
+            <label for="search-location">Search by Location:</label>
+            <select id="search-location">
+                <option value="">Select City</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Noida">Noida</option>
+                <option value="Pune">Pune</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Kolkata">Kolkata</option>
+            </select>
+            <button onclick="filterProperties()">Search</button>
+        </div>
+        <div id="property-list" class="property-grid">
+            <div class="property-card">
+                <img src="https://via.placeholder.com/400x250" alt="Property 1">
+                <h3>Luxury Apartment</h3>
+                <p>Location: Downtown, Delhi</p>
+                <button onclick="viewDetails('Luxury Apartment')">View Details</button>
+            </div>
+            <div class="property-card">
+                <img src="https://via.placeholder.com/400x250" alt="Property 2">
+                <h3>Cozy Studio</h3>
+                <p>Location: Suburbs, Mumbai</p>
+                <button onclick="viewDetails('Cozy Studio')">View Details</button>
+            </div>
+            <div class="property-card">
+                <img src="https://via.placeholder.com/400x250" alt="Property 3">
+                <h3>Spacious Villa</h3>
+                <p>Location: Countryside, Bangalore</p>
+                <button onclick="viewDetails('Spacious Villa')">View Details</button>
+            </div>
+            <div class="property-card">
+                <img src="https://via.placeholder.com/400x250" alt="Property 4">
+                <h3>Modern Flat</h3>
+                <p>Location: Urban Area, Noida</p>
+                <button onclick="viewDetails('Modern Flat')">View Details</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cleaning Services Section -->
+    <section id="urbanclap-section" class="section">
+        <h2>Request Cleaning Services</h2>
+        <form id="urbanclap-form" class="form">
+            <label for="ledger-name">Your Name:</label>
+            <input type="text" id="ledger-name" placeholder="Enter your name" required>
+
+            <label for="package-type">Select Package:</label>
+            <select id="package-type" required>
+                <option value="">Choose a package</option>
+                <option value="kitchen-cleaning">Kitchen Cleaning</option>
+                <option value="bathroom-cleaning">Bathroom Cleaning</option>
+                <option value="full-home-cleaning">Full Home Cleaning</option>
+                <option value="sofa-cleaning">Sofa Cleaning</option>
+                <option value="carpet-cleaning">Carpet Cleaning</option>
+            </select>
+
+            <button type="submit">Request Service</button>
+        </form>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="section">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need assistance, feel free to reach out to us. We're here to help!</p>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <p>Phone: +91-9876543210</p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <p>Email: support@propconnect.com</p>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>Address: 123 PropConnect St., Delhi, India</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 PropConnect <i class="fas fa-heart"></i>.</p>
+    </footer>
+    
+    <script>
+        function viewDetails(propertyName) {
+            alert(`Details for ${propertyName}:
+Phone: +91-9876543210
+Address: Available on request
+Amenities: Gym, Pool, Parking
+Property Age: 3 years`);
+        }
+
+        function filterProperties() {
+            const location = document.getElementById('search-location').value;
+            alert(`Searching properties in ${location}`);
+        }
+    </script>
+</body>
+</html>
